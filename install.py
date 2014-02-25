@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 """Initial setup script for Oscar. Run it on the device where Oscar will be running.
-
-   https://github.com/danslimmon/oscar"""
+   https://github.com/danslimmon/oscar
+   
+   Created by Dan Slimmon
+   Remixed by AJ Cordeiro 
+   
+   """
 
 import os
 import sys
@@ -14,11 +18,21 @@ def run_command(command):
     for line in iter(p.stdout.readline, ''):
         print line,
 
-
+print "*************************************************************************************"
+print "*                                                                                   *"
+print "*      OSCAR: A digital shopping cart, under your kitchen sink                      *"
+print "*                                                                                   *"
+print "* Created by Dan Slimmon                                                            *"
+print "* Remixed by AJ Cordeiro, CloCkWeRX                                                 *"
+print "*                                                                                   *"
+print "*************************************************************************************"
+print
+print "ATTENTION: This script should be run with root privileges from the /var/lib/oscar folder."
+print "It is currently tested for use with Raspbian and its variants."
+print "Before running this script, it is highly recommend you perform your apt-get updates and upgrades."
+print 
 print "Let's set up Oscar."
 print
-print "This script is tested on Raspbian. If you're running something else, I'd"
-print "love a pull request to adapt it to your situation!"
 print
 
 
@@ -30,7 +44,7 @@ if os.getuid() != 0:
 
 
 ######################################## Digit-Eyes
-print "You need accounts with a few APIs to use Oscar. First of all,"
+print "You need to setup a few accounts with some external services to use Oscar. First of all,"
 print "go to"
 print
 print "    http://www.digit-eyes.com"
@@ -76,6 +90,20 @@ m = re.search('/b/([^/]+)', trello_db_board_url)
 trello_db_board = m.group(1)
 trello_grocery_list = 'Groceries'
 
+
+#################################### NUCLEAR
+gmail_user = ''
+gmail_password = ''
+email_dest = ''
+twilio_src = ''
+twilio_sid = ''
+twilio_token = ''
+twilio_dest = ''
+
+
+
+
+
 ######################################## Communication
 print
 print "Oscar can email or text you when it scans something it doesn't recognize. This"
@@ -93,6 +121,9 @@ if communication_method == 'email':
     print "you need an account with GMail:"
     print
     print "    https://mail.google.com/"
+    print
+    print "Please note that the account sending the email must not require two-factor"
+    print "authentication."
     print
     print "If you want to, you can sign up for a GMail account and enter your"
     print "information below. If not, no sweat: just leave the input blank. You"
@@ -203,6 +234,37 @@ new_rules = [
     {'search_term': 'olive oil', 'item': 'olive oil'},
     {'search_term': 'cereal', 'item': 'cereal'},
     {'search_term': 'peanut butter', 'item': 'peanut butter'},
+    {'search_term': 'ketchup', 'item': 'ketchup'},
+    {'search_term': 'baking powder', 'item': 'baking powder'},
+    {'search_term': 'yeast', 'item': 'yeast'},
+    {'search_term': 'baking soda', 'item': 'soda'},
+    {'search_term': 'beans', 'item': 'beans'},
+    {'search_term': 'bread crumbs', 'item': 'bread crumbs'},
+    {'search_term': 'broth', 'item': 'broth'},
+    {'search_term': 'cereal', 'item': 'cereal'},
+    {'search_term': 'chocolate', 'item': 'chocolate'},
+    {'search_term': 'cooking spray', 'item': 'cooking spray'},
+    {'search_term': 'cornmeal', 'item': 'cornmeal'},
+    {'search_term': 'cornstarch', 'item': 'cornstarch'},
+    {'search_term': 'crackers', 'item': 'crackers'},
+    {'search_term': 'raisins', 'item': 'raisins'},
+    {'search_term': 'vanilla extract', 'item': 'vanilla extract'},
+    {'search_term': 'flour', 'item': 'flour'},
+    {'search_term': 'mayo', 'item': 'mayo'},
+    {'search_term': 'garlic', 'item': 'garlic'},
+    {'search_term': 'pasta', 'item': 'pasta'},
+    {'search_term': 'bacon', 'item': 'bacon'},
+    {'search_term': 'bread', 'item': 'bread'},
+    {'search_term': 'potatoes', 'item': 'potatoes'},
+    {'search_term': 'rice', 'item': 'rice'},
+    {'search_term': 'soup', 'item': 'soup'},
+    {'search_term': 'sugar', 'item': 'sugar'},
+    {'search_term': 'tea', 'item': 'tea'},
+    {'search_term': 'tuna', 'item': 'tuna'},
+    {'search_term': 'evaporated milk', 'item': 'evaporated milk'},
+    {'search_term': 'vinegar', 'item': 'vinegar'},
+    {'search_term': 'eggs', 'item': 'eggs'},
+    {'search_term': 'chips', 'item': 'chips'},
 ]
 os.chdir('/var/oscar')
 from lib import trellodb
