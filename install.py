@@ -23,7 +23,7 @@ print "*                                                                        
 print "*      OSCAR: A digital shopping cart, under your kitchen sink                      *"
 print "*                                                                                   *"
 print "* Created by Dan Slimmon                                                            *"
-print "* Remixed by AJ Cordeiro, CloCkWeRX                                                 *"
+print "* Remixed by CloCkWeRX, digital-shokunin, hexedpackets, cabe56, AJ Cordeiro         *"
 print "*                                                                                   *"
 print "*************************************************************************************"
 print
